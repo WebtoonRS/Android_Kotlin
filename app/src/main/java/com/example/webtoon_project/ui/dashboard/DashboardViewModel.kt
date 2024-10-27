@@ -15,7 +15,7 @@ class DashboardViewModel : ViewModel() {
     val webtoons: LiveData<List<INodeJS.Webtoon>> = _webtoons
 
     private val compositeDisposable = CompositeDisposable()
-    private val myAPI: INodeJS = RetrofitClient.instance?.create(INodeJS::class.java)
+    private val myAPI: INodeJS = RetrofitClient.getInstance?.create(INodeJS::class.java)
         ?: throw IllegalStateException("API service not initialized")
 
     fun searchWebtoons(query: String) {

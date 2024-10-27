@@ -16,7 +16,7 @@ class StartActivity : AppCompatActivity() {
 
         GlobalScope.launch {
             delay(3000)
-            startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+            startActivity(Intent(this@StartActivity, MainActivity::class.java))
         }
     }
 }
