@@ -35,15 +35,18 @@ interface INodeJS {
     class GenreRequest(var genre: String)
 
     class Webtoon : Parcelable {
+        var id: Int // id 필드 추가함
         var title: String?
         var thumbnail_link: String?
 
-        constructor(title: String?, thumbnail_link: String?) {
+        constructor(id: Int, title: String?, thumbnail_link: String?) {
+            this.id = id
             this.title = title
             this.thumbnail_link = thumbnail_link
         }
 
         protected constructor(`in`: Parcel) {
+            id = `in`.readInt() // id 읽기 추가
             title = `in`.readString()
             thumbnail_link = `in`.readString()
         }
@@ -53,6 +56,7 @@ interface INodeJS {
         }
 
         override fun writeToParcel(dest: Parcel, flags: Int) {
+            dest.writeInt(id) // id 쓰기 추가
             dest.writeString(title)
             dest.writeString(thumbnail_link)
         }
@@ -67,4 +71,11 @@ interface INodeJS {
             }
         }
     }
+
+    //flask 서버
+    @POST("recommend")
+    @FormUrlEncoded
+    fun sendClickDataToFlask(
+        @Field("webtoon_id") webtoonId: String // 클릭 시 recommend 엔드포인트에 id를 보냄
+    ): Observable<String>
 }

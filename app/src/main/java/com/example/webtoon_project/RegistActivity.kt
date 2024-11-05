@@ -42,14 +42,17 @@ class RegistActivity : AppCompatActivity() {
     }
 
     private fun registerUser(email: String, password: String, name: String) {
-        compositeDisposable.add(myAPI.registerUser(email, password, name) !!
+        compositeDisposable.add(myAPI.registerUser(email, password, name)!!
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                val intent = Intent(this, RegistActivity::class.java).apply {
+                // 회원가입 성공 후 MainActivity로 이동
+                val intent = Intent(this, MainActivity::class.java).apply {
                     putExtra("response", response)
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 }
                 startActivity(intent)
+                finish() // 현재 Activity 종료하여 루프 방지
             }, { error ->
                 Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
             })

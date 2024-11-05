@@ -1,3 +1,5 @@
+package com.example.webtoon_project
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -5,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.webtoon_project.databinding.ActivityLoginBinding //바인딩 이름 확인 (xml 생성시 자동 부여)
 import com.example.webtoon_project.Retrofit.INodeJS
 import com.example.webtoon_project.Retrofit.RetrofitClient
-import com.example.webtoon_project.RegistActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         compositeDisposable.clear()
         super.onDestroy()
     }
+
     private fun loginUser(email: String, password: String) {
         compositeDisposable.add(myAPI.loginUser(email, password)!!
             .subscribeOn(Schedulers.io())
@@ -48,6 +50,11 @@ class MainActivity : AppCompatActivity() {
             .subscribe({ response ->
                 if (response?.contains("encrypted_password") == true) {
                     Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+
+                    // 로그인 성공 시 RecommendActivity로 이동 => 첫 로그인인 회원에게만
+                    val intent = Intent(this, RecommendActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
                     Toast.makeText(this, response ?: "No response", Toast.LENGTH_SHORT).show()
                 }

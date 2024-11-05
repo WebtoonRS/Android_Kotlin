@@ -11,12 +11,15 @@ import kotlinx.coroutines.launch
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding= ActivityStartBinding.inflate(layoutInflater)
+        val binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         GlobalScope.launch {
             delay(3000)
-            startActivity(Intent(this@StartActivity, MainActivity::class.java))
+            startActivity(Intent(this@StartActivity, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            })
+            finish() // StartActivity 종료하여 다시 돌아오지 않도록 설정 (일단 일회성으로만)
         }
     }
 }
