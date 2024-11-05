@@ -1,5 +1,4 @@
 package com.example.webtoon_project.Retrofit
-
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,6 +26,7 @@ object RetrofitClient {
         if (instance5000 == null) {
             instance5000 = Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000/")
+                .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

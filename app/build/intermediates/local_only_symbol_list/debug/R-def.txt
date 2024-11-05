@@ -28,7 +28,7 @@ id buttonSearch
 id container
 id edit_email
 id edit_pw
-id fragment_container
+id imageViewThumbnail
 id login
 id login_button
 id login_button_google
@@ -44,6 +44,7 @@ id nav_view
 id navigation_dashboard
 id navigation_home
 id navigation_mypage
+id ratingBarWebtoon
 id recyclerViewWebtoons
 id register_button
 id register_button_M
@@ -58,9 +59,13 @@ id sectionSports
 id sectionThriller
 id sectionfantasy
 id sectionramance
+id textViewAuthor
 id textViewTitle
 id text_home
 id text_mypage
+id webtoonRecyclerView
+id webtoonThumbnail
+id webtoonTitle
 layout activity_login
 layout activity_main
 layout activity_recommend
@@ -69,7 +74,8 @@ layout activity_start
 layout fragment_dashboard
 layout fragment_home
 layout fragment_mypage
-layout item_webtoon
+layout item_search
+layout reitem_webtoon
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round

@@ -1,46 +1,46 @@
 [
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_login.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\fragment_mypage.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\fragment_mypage.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_start.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_start.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_check_pw.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_check_pw.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\fragment_home.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\activity_start.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\activity_start.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\fragment_mypage.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\fragment_mypage.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\item_webtoon.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\item_webtoon.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\fragment_dashboard.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\fragment_dashboard.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\activity_sign.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\activity_sign.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_recommend.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_recommend.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\reitem_webtoon.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\reitem_webtoon.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_sign.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_sign.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\activity_recommend.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\activity_recommend.xml"
     },
     {
-        "merged": "com.example.webtoon_project.app-mergeDebugResources-48:/layout/activity_sign.xml",
-        "source": "com.example.webtoon_project.app-main-51:/layout/activity_sign.xml"
+        "merged": "com.example.webtoon_project.app-mergeDebugResources-49:/layout/item_search.xml",
+        "source": "com.example.webtoon_project.app-main-52:/layout/item_search.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\item_webtoon.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\item_webtoon.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-48:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-51:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-mergeDebugResources-49:\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\82105\\.gradle\\daemon\\8.7\\com.example.webtoon_project.app-main-52:\\layout\\fragment_dashboard.xml"
     }
 ]

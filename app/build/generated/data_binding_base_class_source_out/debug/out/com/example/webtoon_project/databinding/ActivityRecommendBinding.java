@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.webtoon_project.R;
@@ -21,9 +21,6 @@ import java.lang.String;
 public final class ActivityRecommendBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
-
-  @NonNull
-  public final FrameLayout fragmentContainer;
 
   @NonNull
   public final LinearLayout searchingsectionlinear;
@@ -55,15 +52,17 @@ public final class ActivityRecommendBinding implements ViewBinding {
   @NonNull
   public final MaterialButton sectionramance;
 
+  @NonNull
+  public final RecyclerView webtoonRecyclerView;
+
   private ActivityRecommendBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout fragmentContainer, @NonNull LinearLayout searchingsectionlinear,
-      @NonNull LinearLayout searchingsectionlinear1, @NonNull LinearLayout searchingsectionlinear2,
-      @NonNull MaterialButton sectionComic, @NonNull MaterialButton sectionDrama,
-      @NonNull Button sectionMA, @NonNull MaterialButton sectionSports,
-      @NonNull MaterialButton sectionThriller, @NonNull MaterialButton sectionfantasy,
-      @NonNull MaterialButton sectionramance) {
+      @NonNull LinearLayout searchingsectionlinear, @NonNull LinearLayout searchingsectionlinear1,
+      @NonNull LinearLayout searchingsectionlinear2, @NonNull MaterialButton sectionComic,
+      @NonNull MaterialButton sectionDrama, @NonNull Button sectionMA,
+      @NonNull MaterialButton sectionSports, @NonNull MaterialButton sectionThriller,
+      @NonNull MaterialButton sectionfantasy, @NonNull MaterialButton sectionramance,
+      @NonNull RecyclerView webtoonRecyclerView) {
     this.rootView = rootView;
-    this.fragmentContainer = fragmentContainer;
     this.searchingsectionlinear = searchingsectionlinear;
     this.searchingsectionlinear1 = searchingsectionlinear1;
     this.searchingsectionlinear2 = searchingsectionlinear2;
@@ -74,6 +73,7 @@ public final class ActivityRecommendBinding implements ViewBinding {
     this.sectionThriller = sectionThriller;
     this.sectionfantasy = sectionfantasy;
     this.sectionramance = sectionramance;
+    this.webtoonRecyclerView = webtoonRecyclerView;
   }
 
   @Override
@@ -103,12 +103,6 @@ public final class ActivityRecommendBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fragment_container;
-      FrameLayout fragmentContainer = ViewBindings.findChildViewById(rootView, id);
-      if (fragmentContainer == null) {
-        break missingId;
-      }
-
       id = R.id.searchingsectionlinear;
       LinearLayout searchingsectionlinear = ViewBindings.findChildViewById(rootView, id);
       if (searchingsectionlinear == null) {
@@ -169,9 +163,15 @@ public final class ActivityRecommendBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRecommendBinding((ConstraintLayout) rootView, fragmentContainer,
-          searchingsectionlinear, searchingsectionlinear1, searchingsectionlinear2, sectionComic,
-          sectionDrama, sectionMA, sectionSports, sectionThriller, sectionfantasy, sectionramance);
+      id = R.id.webtoonRecyclerView;
+      RecyclerView webtoonRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (webtoonRecyclerView == null) {
+        break missingId;
+      }
+
+      return new ActivityRecommendBinding((ConstraintLayout) rootView, searchingsectionlinear,
+          searchingsectionlinear1, searchingsectionlinear2, sectionComic, sectionDrama, sectionMA,
+          sectionSports, sectionThriller, sectionfantasy, sectionramance, webtoonRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

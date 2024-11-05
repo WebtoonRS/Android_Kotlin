@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.webtoon_project.app-mergeDebugResources-47:/values-pt/values-pt.xml",
+            "outputFile": "com.example.webtoon_project.app-mergeDebugResources-48:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\82105\\.gradle\\caches\\transforms-4\\ff2b2adfe07055e93d728879a7947f04\\transformed\\navigation-ui-2.7.5\\res\\values-pt\\values-pt.xml",

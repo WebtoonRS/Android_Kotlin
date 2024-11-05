@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.webtoon_project.app-mergeDebugResources-47:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.webtoon_project.app-mergeDebugResources-48:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\82105\\.gradle\\caches\\transforms-4\\a07eb682f1f242786df40b5249c4b6a8\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",

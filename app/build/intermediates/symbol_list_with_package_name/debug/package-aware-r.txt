@@ -3316,12 +3316,12 @@ id fixed
 id flip
 id floating
 id forever
-id fragment_container
 id fragment_container_view_tag
 id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -3341,6 +3341,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageViewThumbnail
 id immediateStop
 id included
 id indeterminate
@@ -3496,6 +3497,7 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id ratingBarWebtoon
 id ratio
 id rectangles
 id recyclerViewWebtoons
@@ -3605,6 +3607,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textViewAuthor
 id textViewTitle
 id text_home
 id text_input_end_icon
@@ -3647,6 +3650,9 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id webtoonRecyclerView
+id webtoonThumbnail
+id webtoonTitle
 id west
 id withText
 id with_icon
@@ -3797,7 +3803,7 @@ layout fragment_home
 layout fragment_mypage
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
-layout item_webtoon
+layout item_search
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3855,6 +3861,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout reitem_webtoon
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

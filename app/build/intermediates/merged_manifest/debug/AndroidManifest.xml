@@ -8,6 +8,8 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="com.example.webtoon_project.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -26,15 +28,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Webtoon_Project" >
+        android:theme="@style/Theme.Webtoon_Project"
+        android:usesCleartextTraffic="true" >
         <activity
             android:name="com.example.webtoon_project.RecommendActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.webtoon_project.CheckPwActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.webtoon_project.LoginActivity"
+            android:name="com.example.webtoon_project.RegistActivity"
             android:exported="false" />
         <activity
             android:name="com.example.webtoon_project.StartActivity"
