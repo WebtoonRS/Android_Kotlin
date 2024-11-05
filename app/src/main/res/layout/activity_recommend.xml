@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecommendActivity">
+
+
+    <LinearLayout
+        android:id="@+id/searchingsectionlinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="눈송이 님, 좋아하는 웹툰 콘텐츠를 선택해주세요!"
+            android:textSize="17sp"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="8dp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="회원님이 좋아하실 만한 웹툰을 더 많이 추천해 드릴 수있습니다. 각 장르에 마음에 드는 콘텐츠가 있다면 선택해주세요 :)"
+            android:textSize="13sp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp" />
+
+
+
+        <LinearLayout
+            android:id="@+id/searchingsectionlinear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionramance"
+                android:text="로맨스"
+                android:textSize="18sp"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginRight="8dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionfantasy"
+                android:text="판타지"
+                android:textSize="18sp"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginRight="8dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionThriller"
+                android:text="스릴러"
+                android:textSize="18sp"
+                android:backgroundTint="@android:color/transparent"
+                android:orientation="horizontal"
+                android:layout_marginRight="8dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionDrama"
+                android:text="드라마"
+                android:textSize="18sp"
+                android:backgroundTint="@android:color/transparent"
+                android:orientation="horizontal"
+                android:layout_marginRight="8dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/searchingsectionlinear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sectionMA"
+                android:text="무협/사극"
+                android:textSize="18sp"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginRight="1dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionComic"
+                android:text="일상/개그"
+                android:textSize="18sp"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginRight="1dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sectionSports"
+                android:text="스포츠/액션"
+                android:textSize="18sp"
+                android:orientation="horizontal"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginRight="1dp"
+                android:layout_weight ="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/webtoonRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/searchingsectionlinear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
