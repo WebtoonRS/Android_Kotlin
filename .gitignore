@@ -1,0 +1,112 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+/dist
+
+# Misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Optional
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.seed
+*.pid.lock
+
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Android Studio
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/compiler.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/gradle.xml
+/.idea/kotlinc.xml
+/.idea/*.iml
+/.idea/dictionaries
+/.idea/deploymentTargetDropDown.xml
+
+# Android 빌드 파일
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Keystore 파일
+*.jks
+*.keystore
+/keystore.properties
+
+# Google Services
+google-services.json
+
+# Android Profiling
+*.hprof
+
+# Android Studio generated files
+/app/release
+/app/debug
