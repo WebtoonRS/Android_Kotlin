@@ -46,8 +46,8 @@ class RegistActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ response ->
-                // 회원가입 성공 후 MainActivity로 이동
-                val intent = Intent(this, MainActivity::class.java).apply {
+                // 회원가입 성공 후 LoginActivity로 이동
+                val intent = Intent(this, LoginActivity::class.java).apply {
                     putExtra("response", response)
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 }

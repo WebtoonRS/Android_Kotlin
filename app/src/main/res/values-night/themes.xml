@@ -11,6 +11,10 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <!-- Disable ActionBar to use Toolbar -->
+        <item name="windowActionBar">false</item> <!-- ActionBar 비활성화 -->
+        <item name="windowNoTitle">true</item> <!-- 타이틀 바 비활성화 -->
+
     </style>
 </resources>

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.webtoon_project.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,6 +22,9 @@ import java.lang.String;
 public final class ActivityRecommendBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final BottomNavigationView navNext;
 
   @NonNull
   public final LinearLayout searchingsectionlinear;
@@ -56,13 +60,14 @@ public final class ActivityRecommendBinding implements ViewBinding {
   public final RecyclerView webtoonRecyclerView;
 
   private ActivityRecommendBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LinearLayout searchingsectionlinear, @NonNull LinearLayout searchingsectionlinear1,
-      @NonNull LinearLayout searchingsectionlinear2, @NonNull MaterialButton sectionComic,
-      @NonNull MaterialButton sectionDrama, @NonNull Button sectionMA,
-      @NonNull MaterialButton sectionSports, @NonNull MaterialButton sectionThriller,
-      @NonNull MaterialButton sectionfantasy, @NonNull MaterialButton sectionramance,
-      @NonNull RecyclerView webtoonRecyclerView) {
+      @NonNull BottomNavigationView navNext, @NonNull LinearLayout searchingsectionlinear,
+      @NonNull LinearLayout searchingsectionlinear1, @NonNull LinearLayout searchingsectionlinear2,
+      @NonNull MaterialButton sectionComic, @NonNull MaterialButton sectionDrama,
+      @NonNull Button sectionMA, @NonNull MaterialButton sectionSports,
+      @NonNull MaterialButton sectionThriller, @NonNull MaterialButton sectionfantasy,
+      @NonNull MaterialButton sectionramance, @NonNull RecyclerView webtoonRecyclerView) {
     this.rootView = rootView;
+    this.navNext = navNext;
     this.searchingsectionlinear = searchingsectionlinear;
     this.searchingsectionlinear1 = searchingsectionlinear1;
     this.searchingsectionlinear2 = searchingsectionlinear2;
@@ -103,6 +108,12 @@ public final class ActivityRecommendBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.nav_next;
+      BottomNavigationView navNext = ViewBindings.findChildViewById(rootView, id);
+      if (navNext == null) {
+        break missingId;
+      }
+
       id = R.id.searchingsectionlinear;
       LinearLayout searchingsectionlinear = ViewBindings.findChildViewById(rootView, id);
       if (searchingsectionlinear == null) {
@@ -169,9 +180,10 @@ public final class ActivityRecommendBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRecommendBinding((ConstraintLayout) rootView, searchingsectionlinear,
-          searchingsectionlinear1, searchingsectionlinear2, sectionComic, sectionDrama, sectionMA,
-          sectionSports, sectionThriller, sectionfantasy, sectionramance, webtoonRecyclerView);
+      return new ActivityRecommendBinding((ConstraintLayout) rootView, navNext,
+          searchingsectionlinear, searchingsectionlinear1, searchingsectionlinear2, sectionComic,
+          sectionDrama, sectionMA, sectionSports, sectionThriller, sectionfantasy, sectionramance,
+          webtoonRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

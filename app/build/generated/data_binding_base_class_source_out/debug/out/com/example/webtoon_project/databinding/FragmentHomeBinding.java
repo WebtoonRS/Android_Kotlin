@@ -4,13 +4,19 @@ package com.example.webtoon_project.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.webtoon_project.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -20,11 +26,90 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView textHome;
+  public final ImageButton btnNext;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textHome) {
+  @NonNull
+  public final ImageButton btnPrevious;
+
+  @NonNull
+  public final MaterialButton hash1;
+
+  @NonNull
+  public final MaterialButton hash10;
+
+  @NonNull
+  public final MaterialButton hash2;
+
+  @NonNull
+  public final MaterialButton hash3;
+
+  @NonNull
+  public final MaterialButton hash4;
+
+  @NonNull
+  public final MaterialButton hash5;
+
+  @NonNull
+  public final MaterialButton hash6;
+
+  @NonNull
+  public final MaterialButton hash7;
+
+  @NonNull
+  public final MaterialButton hash8;
+
+  @NonNull
+  public final MaterialButton hash9;
+
+  @NonNull
+  public final RecyclerView lstUser;
+
+  @NonNull
+  public final Button rebutton;
+
+  @NonNull
+  public final RecyclerView recyclerView;
+
+  @NonNull
+  public final SearchView search;
+
+  @NonNull
+  public final LinearLayout searchingsectionlinear1;
+
+  @NonNull
+  public final LinearLayout searchingsectionlinear2;
+
+  @NonNull
+  public final TextView titleText;
+
+  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull ImageButton btnNext,
+      @NonNull ImageButton btnPrevious, @NonNull MaterialButton hash1,
+      @NonNull MaterialButton hash10, @NonNull MaterialButton hash2, @NonNull MaterialButton hash3,
+      @NonNull MaterialButton hash4, @NonNull MaterialButton hash5, @NonNull MaterialButton hash6,
+      @NonNull MaterialButton hash7, @NonNull MaterialButton hash8, @NonNull MaterialButton hash9,
+      @NonNull RecyclerView lstUser, @NonNull Button rebutton, @NonNull RecyclerView recyclerView,
+      @NonNull SearchView search, @NonNull LinearLayout searchingsectionlinear1,
+      @NonNull LinearLayout searchingsectionlinear2, @NonNull TextView titleText) {
     this.rootView = rootView;
-    this.textHome = textHome;
+    this.btnNext = btnNext;
+    this.btnPrevious = btnPrevious;
+    this.hash1 = hash1;
+    this.hash10 = hash10;
+    this.hash2 = hash2;
+    this.hash3 = hash3;
+    this.hash4 = hash4;
+    this.hash5 = hash5;
+    this.hash6 = hash6;
+    this.hash7 = hash7;
+    this.hash8 = hash8;
+    this.hash9 = hash9;
+    this.lstUser = lstUser;
+    this.rebutton = rebutton;
+    this.recyclerView = recyclerView;
+    this.search = search;
+    this.searchingsectionlinear1 = searchingsectionlinear1;
+    this.searchingsectionlinear2 = searchingsectionlinear2;
+    this.titleText = titleText;
   }
 
   @Override
@@ -54,13 +139,123 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.text_home;
-      TextView textHome = ViewBindings.findChildViewById(rootView, id);
-      if (textHome == null) {
+      id = R.id.btnNext;
+      ImageButton btnNext = ViewBindings.findChildViewById(rootView, id);
+      if (btnNext == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, textHome);
+      id = R.id.btnPrevious;
+      ImageButton btnPrevious = ViewBindings.findChildViewById(rootView, id);
+      if (btnPrevious == null) {
+        break missingId;
+      }
+
+      id = R.id.hash1;
+      MaterialButton hash1 = ViewBindings.findChildViewById(rootView, id);
+      if (hash1 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash10;
+      MaterialButton hash10 = ViewBindings.findChildViewById(rootView, id);
+      if (hash10 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash2;
+      MaterialButton hash2 = ViewBindings.findChildViewById(rootView, id);
+      if (hash2 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash3;
+      MaterialButton hash3 = ViewBindings.findChildViewById(rootView, id);
+      if (hash3 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash4;
+      MaterialButton hash4 = ViewBindings.findChildViewById(rootView, id);
+      if (hash4 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash5;
+      MaterialButton hash5 = ViewBindings.findChildViewById(rootView, id);
+      if (hash5 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash6;
+      MaterialButton hash6 = ViewBindings.findChildViewById(rootView, id);
+      if (hash6 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash7;
+      MaterialButton hash7 = ViewBindings.findChildViewById(rootView, id);
+      if (hash7 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash8;
+      MaterialButton hash8 = ViewBindings.findChildViewById(rootView, id);
+      if (hash8 == null) {
+        break missingId;
+      }
+
+      id = R.id.hash9;
+      MaterialButton hash9 = ViewBindings.findChildViewById(rootView, id);
+      if (hash9 == null) {
+        break missingId;
+      }
+
+      id = R.id.lstUser;
+      RecyclerView lstUser = ViewBindings.findChildViewById(rootView, id);
+      if (lstUser == null) {
+        break missingId;
+      }
+
+      id = R.id.rebutton;
+      Button rebutton = ViewBindings.findChildViewById(rootView, id);
+      if (rebutton == null) {
+        break missingId;
+      }
+
+      id = R.id.recyclerView;
+      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerView == null) {
+        break missingId;
+      }
+
+      id = R.id.search;
+      SearchView search = ViewBindings.findChildViewById(rootView, id);
+      if (search == null) {
+        break missingId;
+      }
+
+      id = R.id.searchingsectionlinear1;
+      LinearLayout searchingsectionlinear1 = ViewBindings.findChildViewById(rootView, id);
+      if (searchingsectionlinear1 == null) {
+        break missingId;
+      }
+
+      id = R.id.searchingsectionlinear2;
+      LinearLayout searchingsectionlinear2 = ViewBindings.findChildViewById(rootView, id);
+      if (searchingsectionlinear2 == null) {
+        break missingId;
+      }
+
+      id = R.id.titleText;
+      TextView titleText = ViewBindings.findChildViewById(rootView, id);
+      if (titleText == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((ConstraintLayout) rootView, btnNext, btnPrevious, hash1,
+          hash10, hash2, hash3, hash4, hash5, hash6, hash7, hash8, hash9, lstUser, rebutton,
+          recyclerView, search, searchingsectionlinear1, searchingsectionlinear2, titleText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
