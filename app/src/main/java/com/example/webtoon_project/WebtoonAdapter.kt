@@ -1,4 +1,5 @@
 package com.example.webtoon_project
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +11,21 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import com.example.webtoon_project.Retrofit.INodeJS
 
-class WebtoonAdapter(private val webtoonList: List<INodeJS.Webtoon>) : RecyclerView.Adapter<WebtoonAdapter.WebtoonViewHolder>() {
+class WebtoonAdapter(private val webtoonList: List<INodeJS.Webtoon>,
+                     private val onItemClick: (String) -> Unit // 클릭 이벤트 콜백 추가
+) : RecyclerView.Adapter<WebtoonAdapter.WebtoonViewHolder>() {
 
     inner class WebtoonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val thumbnail: ImageView = view.findViewById(R.id.webtoonThumbnail)
         val title: TextView = view.findViewById(R.id.webtoonTitle)
+
+        init {
+            // 클릭 리스너 추가
+            view.setOnClickListener {
+                val webtoon = webtoonList[adapterPosition]
+                onItemClick(webtoon.id.toString())  // 클릭한 웹툰의 ID를 String으로 전달
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WebtoonViewHolder {
@@ -37,8 +48,6 @@ class WebtoonAdapter(private val webtoonList: List<INodeJS.Webtoon>) : RecyclerV
             .load(url) // 이미지 로딩 전 표시할 플레이스홀더
             .error(R.drawable.error_image)  // 로딩 실패 시 표시할 이미지
             .into(holder.thumbnail)
-
-
     }
 
     override fun getItemCount(): Int = webtoonList.size

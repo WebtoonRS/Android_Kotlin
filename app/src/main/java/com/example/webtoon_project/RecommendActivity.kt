@@ -1,5 +1,6 @@
 package com.example.webtoon_project
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -37,7 +38,20 @@ class RecommendActivity : AppCompatActivity() {
         setGenreButtonListener(R.id.sectionMA, "무협/사극")
         setGenreButtonListener(R.id.sectionComic, "일상/개그")
         setGenreButtonListener(R.id.sectionSports, "스포츠/액션")
+
+        // BottomNavigationView의 Next 버튼 설정
+        binding.navNext.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_next -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
+
 
     private fun setGenreButtonListener(buttonId: Int, genre: String) {
         findViewById<Button>(buttonId).setOnClickListener {
@@ -54,12 +68,22 @@ class RecommendActivity : AppCompatActivity() {
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ webtoonList ->
                     val validWebtoons = webtoonList?.filterNotNull() ?: emptyList()
-                    binding.webtoonRecyclerView.adapter = WebtoonAdapter(validWebtoons)
+                    // onItemClick 콜백 전달
+                    binding.webtoonRecyclerView.adapter = WebtoonAdapter(validWebtoons) { webtoonId ->
+                        // 웹툰 클릭 시 호출될 콜백 함수 정의
+                        sendWebtoonIdToServer(webtoonId)
+                    }
                 }, { error ->
                     Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
                 })
                 ?: return
         )
+    }
+
+    private fun sendWebtoonIdToServer(webtoonId: String) {
+        // 웹툰 ID를 서버에 전송하는 코드
+        Toast.makeText(this, "웹툰 ID: $webtoonId 클릭됨", Toast.LENGTH_SHORT).show()
+        // 여기에 실제 서버 요청 코드를 추가하면 됩니다.
     }
 
 

@@ -1,5 +1,4 @@
 //package com.example.webtoon_project.ui.search
-test commit
 //
 //import android.os.Bundle
 //import android.view.LayoutInflater

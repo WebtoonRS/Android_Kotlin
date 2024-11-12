@@ -3,6 +3,7 @@ package com.example.webtoon_project.Retrofit
 import android.os.Parcel
 import android.os.Parcelable
 import io.reactivex.Observable
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -72,10 +73,20 @@ interface INodeJS {
         }
     }
 
-    //flask 서버
-    @POST("recommend")
+    // Flask 서버
+    @POST("/recommend")
     @FormUrlEncoded
     fun sendClickDataToFlask(
-        @Field("webtoon_id") webtoonId: String // 클릭 시 recommend 엔드포인트에 id를 보냄
+        @Field("webtoon_id") webtoonId: String // 클릭 시 recommend 엔드포인트에 id를 String으로 보냄
     ): Observable<String>
+
+    @GET("/recommend")
+    fun getRecommendedWebtoons(@Query("id") webtoonId: String): Call<List<Webtoon>>
+
+    // 기존 웹툰 리스트 받아오기
+    data class Webtoon_2(
+        val id: String, // id를 String으로 변경
+        val title: String,
+        val thumbnail_link: String
+    )
 }
