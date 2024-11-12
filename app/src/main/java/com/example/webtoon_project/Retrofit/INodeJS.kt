@@ -31,25 +31,34 @@ interface INodeJS {
     fun getWebtoonsByGenre(@Body genreRequest: GenreRequest?): Observable<List<Webtoon?>?>?
 
     @GET("api/webtoons/search")
-    fun searchWebtoons(@Query("query") query: String): Observable<List<Webtoon>>
+    fun searchWebtoons(@Query("query") query: String): Observable<SearchResponse>
+
+    @GET("api/webtoons")
+    fun getWebtoons(): Call<List<Webtoon>>
 
     class GenreRequest(var genre: String)
 
     class Webtoon : Parcelable {
-        var id: Int // id 필드 추가함
+        var id: Int
         var title: String?
         var thumbnail_link: String?
+        var synopsis: String?
+        var similarity_score: Float?
 
-        constructor(id: Int, title: String?, thumbnail_link: String?) {
+        constructor(id: Int, title: String?, thumbnail_link: String?, synopsis: String?, similarity_score: Float?) {
             this.id = id
             this.title = title
             this.thumbnail_link = thumbnail_link
+            this.synopsis = synopsis
+            this.similarity_score = similarity_score
         }
 
         protected constructor(`in`: Parcel) {
-            id = `in`.readInt() // id 읽기 추가
+            id = `in`.readInt()
             title = `in`.readString()
             thumbnail_link = `in`.readString()
+            synopsis = `in`.readString()
+            similarity_score = `in`.readFloat()
         }
 
         override fun describeContents(): Int {
@@ -57,9 +66,11 @@ interface INodeJS {
         }
 
         override fun writeToParcel(dest: Parcel, flags: Int) {
-            dest.writeInt(id) // id 쓰기 추가
+            dest.writeInt(id)
             dest.writeString(title)
             dest.writeString(thumbnail_link)
+            dest.writeString(synopsis)
+            dest.writeFloat(similarity_score!!)
         }
 
         companion object CREATOR : Parcelable.Creator<Webtoon> {
@@ -88,5 +99,11 @@ interface INodeJS {
         val id: String, // id를 String으로 변경
         val title: String,
         val thumbnail_link: String
+    )
+
+    // 검색 결과와 추천 결과를 함께 받는 응답 클래스
+    data class SearchResponse(
+        val searchResult: Webtoon,
+        val recommendations: List<Webtoon>
     )
 }
