@@ -1,69 +1,62 @@
 package com.example.webtoon_project
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.model.GlideUrl
-import com.bumptech.glide.load.model.LazyHeaders
-import com.example.webtoon_project.Retrofit.INodeJS
+import com.example.webtoon_project.databinding.ItemWebtoonBinding
 
 class WebtoonAdapter(
-    private var webtoons: List<INodeJS.Webtoon>,
-    private val onItemClick: (Int) -> Unit,
-    private val onSynopsisClick: ((Int) -> Unit)? = null
-) : RecyclerView.Adapter<WebtoonAdapter.WebtoonViewHolder>() {
+    private var webtoons: List<WebtoonItem>,
+    private val onItemClick: (Int) -> Unit
+) : RecyclerView.Adapter<WebtoonAdapter.ViewHolder>() {
 
-    fun updateList(newWebtoons: List<INodeJS.Webtoon>) {
-        webtoons = newWebtoons
-        notifyDataSetChanged()
-    }
+    class ViewHolder(private val binding: ItemWebtoonBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(webtoon: WebtoonItem, onItemClick: (Int) -> Unit) {
+            binding.apply {
+                tvTitle.text = webtoon.title
+                tvAuthor.text = webtoon.author
 
-    inner class WebtoonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val thumbnail: ImageView = view.findViewById(R.id.webtoonThumbnail)
-        val title: TextView = view.findViewById(R.id.webtoonTitle)
-        val synopsis: TextView? = view.findViewById(R.id.webtoonSynopsis)
+                // 썸네일 이미지 로딩
+                Glide.with(ivThumbnail.context)
+                    .load(webtoon.thumbnailUrl)
+                    // .placeholder(R.drawable.placeholder_image) // 로딩 중 표시할 이미지
+                    // .error(R.drawable.error_image) // 에러 시 표시할 이미지
+                    .centerCrop()
+                    .into(ivThumbnail)
 
-        init {
-            synopsis?.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    onSynopsisClick?.invoke(webtoons[position].id)
-                }
-            }
-
-            view.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    onItemClick(webtoons[position].id)
+                root.setOnClickListener {
+                    onItemClick(webtoon.id)
                 }
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WebtoonViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.reitem_webtoon, parent, false)
-        return WebtoonViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: WebtoonViewHolder, position: Int) {
-        val webtoon = webtoons[position]
-        holder.title.text = webtoon.title
-        holder.synopsis?.text = webtoon.synopsis
-
-        val url = GlideUrl(webtoon.thumbnail_link, LazyHeaders.Builder()
-            .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
-            .build()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemWebtoonBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
-
-        Glide.with(holder.itemView.context)
-            .load(url)
-            .error(R.drawable.error_image)
-            .into(holder.thumbnail)
+        return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = webtoons.size
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(webtoons[position], onItemClick)
+    }
+
+    override fun getItemCount() = webtoons.size
+
+    fun updateWebtoons(newWebtoons: List<WebtoonItem>) {
+        webtoons = newWebtoons
+        notifyDataSetChanged()
+    }
 }
+
+data class WebtoonItem(
+    val id: Int,
+    val title: String,
+    val author: String,
+    val thumbnailUrl: String,
+    val synopsis: String
+)

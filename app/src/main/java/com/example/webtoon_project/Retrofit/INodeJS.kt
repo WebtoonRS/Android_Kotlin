@@ -44,13 +44,15 @@ interface INodeJS {
         var thumbnail_link: String?
         var synopsis: String?
         var similarity_score: Float?
+        var writer: String?
 
-        constructor(id: Int, title: String?, thumbnail_link: String?, synopsis: String?, similarity_score: Float?) {
+        constructor(id: Int, title: String?, thumbnail_link: String?, synopsis: String?, similarity_score: Float?, writer: String?) {
             this.id = id
             this.title = title
             this.thumbnail_link = thumbnail_link
             this.synopsis = synopsis
             this.similarity_score = similarity_score
+            this.writer = writer
         }
 
         protected constructor(`in`: Parcel) {
@@ -59,6 +61,7 @@ interface INodeJS {
             thumbnail_link = `in`.readString()
             synopsis = `in`.readString()
             similarity_score = `in`.readFloat()
+            writer = `in`.readString()
         }
 
         override fun describeContents(): Int {
@@ -71,6 +74,7 @@ interface INodeJS {
             dest.writeString(thumbnail_link)
             dest.writeString(synopsis)
             dest.writeFloat(similarity_score!!)
+            dest.writeString(writer)
         }
 
         companion object CREATOR : Parcelable.Creator<Webtoon> {

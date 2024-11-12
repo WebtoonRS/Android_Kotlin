@@ -67,12 +67,20 @@ class RecommendActivity : AppCompatActivity() {
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ webtoonList ->
-                    val validWebtoons = webtoonList?.filterNotNull() ?: emptyList()
-                    // onItemClick 콜백 전달
-                    binding.webtoonRecyclerView.adapter = WebtoonAdapter(validWebtoons) { webtoonId ->
-                        // 웹툰 클릭 시 호출될 콜백 함수 정의
-                        sendWebtoonIdToServer(webtoonId)
-                    }
+                    val validWebtoons = webtoonList?.filterNotNull()?.map { webtoon ->
+                        WebtoonItem(
+                            id = webtoon.id,
+                            title = webtoon.title ?: "",
+                            author = webtoon.writer?.replace(" / ", ", ") ?: "작가 미상",
+                            thumbnailUrl = webtoon.thumbnail_link ?: "",
+                            synopsis = webtoon.synopsis ?: ""
+                        )
+                    } ?: emptyList()
+                    
+                    binding.webtoonRecyclerView.adapter = WebtoonAdapter(
+                        webtoons = validWebtoons,
+                        onItemClick = { webtoonId -> sendWebtoonIdToServer(webtoonId.toString()) }
+                    )
                 }, { error ->
                     Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
                 })
@@ -81,7 +89,6 @@ class RecommendActivity : AppCompatActivity() {
     }
 
     private fun sendWebtoonIdToServer(webtoonId: String) {
-        // 웹툰 ID를 서버에 전송하는 코드
         Toast.makeText(this, "웹툰 ID: $webtoonId 클릭됨", Toast.LENGTH_SHORT).show()
         // 여기에 실제 서버 요청 코드를 추가하면 됩니다.
     }

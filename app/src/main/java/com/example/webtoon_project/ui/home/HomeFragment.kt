@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.webtoon_project.databinding.FragmentHomeBinding
 import com.example.webtoon_project.Retrofit.INodeJS
 import com.example.webtoon_project.WebtoonAdapter
+import com.example.webtoon_project.WebtoonItem
 import com.example.webtoon_project.Retrofit.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -52,7 +53,16 @@ class HomeFragment : Fragment() {
                 response: Response<List<INodeJS.Webtoon>>
             ) {
                 if (response.isSuccessful) {
-                    val webtoons = response.body() ?: emptyList()
+                    val webtoons = response.body()?.map { webtoon ->
+                        WebtoonItem(
+                            id = webtoon.id,
+                            title = webtoon.title ?: "",
+                            author = webtoon.writer?.replace(" / ", ", ") ?: "작가 미상",
+                            thumbnailUrl = webtoon.thumbnail_link ?: "",
+                            synopsis = webtoon.synopsis ?: ""
+                        )
+                    } ?: emptyList()
+                    
                     webtoonAdapter = WebtoonAdapter(webtoons) { webtoonId ->
                         // Handle webtoon click
                         Toast.makeText(context, "Clicked webtoon: $webtoonId", Toast.LENGTH_SHORT).show()
