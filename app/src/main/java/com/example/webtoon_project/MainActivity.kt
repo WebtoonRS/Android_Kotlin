@@ -7,7 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.webtoon_project.Retrofit.INodeJS
 import com.example.webtoon_project.databinding.ActivityMainBinding
+import com.example.webtoon_project.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,18 +21,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up the toolbar as the ActionBar
         setSupportActionBar(binding.toolbar)
 
         val navView: BottomNavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_mypage
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_mypage
             )
         )
+
+        val recommendedWebtoons: ArrayList<INodeJS.Webtoon> =
+            intent.getParcelableArrayListExtra("recommendedWebtoons") ?: ArrayList()
+
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val bundle = Bundle().apply {
+            putParcelableArrayList("recommendedWebtoons", recommendedWebtoons)
+        }
+        navController.navigate(R.id.navigation_home, bundle)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
     }
+
 
 }

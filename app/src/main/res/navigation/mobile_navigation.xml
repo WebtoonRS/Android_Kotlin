@@ -5,7 +5,12 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
-    <!-- 메인 홈 흐름도 -->
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.webtoon_project.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.webtoon_project.ui.home.HomeFragment"
@@ -13,14 +18,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.webtoon_project.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_mypage"
         android:name="com.example.webtoon_project.ui.mypage.MypageFragment"
         android:label="@string/title_mypage"
         tools:layout="@layout/fragment_mypage" />
+
 </navigation>

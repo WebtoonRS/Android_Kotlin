@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/check_pw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/find_pw_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#18236F"
+        android:text="비밀번호 찾기" />
+
+    <EditText
+        android:id="@+id/edit_email_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#B0B0B0"
+        android:layout_marginBottom="10dp"
+        android:hint="email" />
+
+    <Button
+        android:id="@+id/find_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#202F94"
+        android:text="비밀번호 찾기" />
+
+    <TextView
+        android:id="@+id/find_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="비밀번호 찾기 결과" />
+
+    <Button
+        android:id="@+id/return_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#202F94"
+        android:layout_marginTop="100dp"
+        android:text="돌아가기" />
+
+
+</LinearLayout>

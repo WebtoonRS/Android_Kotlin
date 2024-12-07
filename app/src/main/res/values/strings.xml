@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">웹툰의 민족</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_search">Search</string>
     <string name="title_mypage">Mypage</string>
+    <string name="search_hint">검색어를 입력하세요</string>
+    <string name="tab_story">줄거리</string>
+    <string name="tab_style">그림체</string>
+    <string name="error_search">검색 중 오류가 발생했습니다</string>
+    <string name="thumbnail">웹툰 썸네일</string>
 
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="no_results">검색 결과가 없습니다</string>
+
 </resources>

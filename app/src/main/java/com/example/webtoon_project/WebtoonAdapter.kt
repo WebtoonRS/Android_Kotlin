@@ -1,62 +1,60 @@
 package com.example.webtoon_project
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.webtoon_project.databinding.ItemWebtoonBinding
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.LazyHeaders
+import com.example.webtoon_project.Retrofit.INodeJS
 
-class WebtoonAdapter(
-    private var webtoons: List<WebtoonItem>,
-    private val onItemClick: (Int) -> Unit
-) : RecyclerView.Adapter<WebtoonAdapter.ViewHolder>() {
+class WebtoonAdapter(private val webtoonList: List<INodeJS.Webtoon>,
+                     private val onItemClick: (String) -> Unit // 클릭 이벤트 콜백 추가
+) : RecyclerView.Adapter<WebtoonAdapter.WebtoonViewHolder>() {
 
-    class ViewHolder(private val binding: ItemWebtoonBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(webtoon: WebtoonItem, onItemClick: (Int) -> Unit) {
-            binding.apply {
-                tvTitle.text = webtoon.title
-                tvAuthor.text = webtoon.author
+    inner class WebtoonViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val thumbnail: ImageView = view.findViewById(R.id.webtoonThumbnail)
+        val title: TextView = view.findViewById(R.id.webtoonTitle)
 
-                // 썸네일 이미지 로딩
-                Glide.with(ivThumbnail.context)
-                    .load(webtoon.thumbnailUrl)
-                    // .placeholder(R.drawable.placeholder_image) // 로딩 중 표시할 이미지
-                    // .error(R.drawable.error_image) // 에러 시 표시할 이미지
-                    .centerCrop()
-                    .into(ivThumbnail)
-
-                root.setOnClickListener {
-                    onItemClick(webtoon.id)
-                }
+        init {
+            // 클릭 리스너 추가
+            view.setOnClickListener {
+                val webtoon = webtoonList[adapterPosition]
+                Log.d("WebtoonAdapter", "클릭된 웹툰 title: ${webtoon.title}")
+                onItemClick(webtoon.title.toString())  // 클릭한 웹툰의 ID를 String으로 전달
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemWebtoonBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
-        return ViewHolder(binding)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WebtoonViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.reitem_webtoon, parent, false)
+        return WebtoonViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(webtoons[position], onItemClick)
+    override fun onBindViewHolder(holder: WebtoonViewHolder, position: Int) {
+        val webtoon = webtoonList[position]
+        holder.title.text = webtoon.title
+
+        // 웹툰 제목을 파일명 형식으로 변환
+        val fileName = webtoon.title?.let { title ->
+            title.replace(Regex("[\\\\/*?:\"<>|]"), "")
+                .replace(" ", "_")
+        }
+
+        try {
+            // Assets에서 이미지 로드
+            Glide.with(holder.itemView.context)
+                .load("file:///android_asset/thumbnails/${fileName}.jpg")
+                .error(R.drawable.error_image)
+                .into(holder.thumbnail)
+        } catch (e: Exception) {
+            Log.e("WebtoonAdapter", "이미지 로드 실패: $fileName", e)
+        }
     }
 
-    override fun getItemCount() = webtoons.size
-
-    fun updateWebtoons(newWebtoons: List<WebtoonItem>) {
-        webtoons = newWebtoons
-        notifyDataSetChanged()
-    }
+    override fun getItemCount(): Int = webtoonList.size
 }
-
-data class WebtoonItem(
-    val id: Int,
-    val title: String,
-    val author: String,
-    val thumbnailUrl: String,
-    val synopsis: String
-)
